@@ -24,7 +24,7 @@ end
     [input_channel] = im2double(input_channel);
     %1.对图像基础数据计算
     [Height,Width]=size(input_channel); 
-    [Counts,Value] = imhist(input_channel); 
+    [Counts,Value] = imhist(input_channel);
     %2.找到CDF_Min
     CDF_Map = find(Counts~=0);  %指示非0值的
     CDF_Min = Counts(min(CDF_Map));
