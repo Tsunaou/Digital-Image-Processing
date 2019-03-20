@@ -1,9 +1,9 @@
 %test histeq
 % I = imread('../asset/wiki1.jpg'); 
-% I = imread('../asset/example.png');
+I = imread('../asset/example.png');
 % I = imread('../asset/color.jpg');
 % I = imread('../asset/gray.jpg');
-I = imread('../asset/small_xin.png');
+% I = imread('../asset/small_xin.png');
 % I = imread('../asset/xin.png');
 
 [J] = Histogram_equalization(I);
@@ -22,3 +22,8 @@ I = imread('../asset/small_xin.png');
 % Histogram_display(I,HSV,HSI);
 %Í¼Æ¬¶Ô±È
 % Image_display(I,J,S);
+
+%     figure, imshow(I)
+%     figure, imshow(J)
+%     figure, imshow(HSV)
+%     figure, imshow(HSI)
