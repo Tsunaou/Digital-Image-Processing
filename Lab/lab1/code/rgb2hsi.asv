@@ -3,10 +3,27 @@ function [IMG_HSI] = rgb2hsi(IMG_RGB)
 %   此处显示详细说明
 if numel(size(IMG_RGB)) == 3
     %彩色图
+    r=IMG_RGB(:,:,1);
+    g=IMG_RGB(:,:,2);
+    b=IMG_RGB(:,:,3);
+  
     %实现思路：从RGB得到HSV后，再从HSV得到HSI
-    %用库函数得到HSV
+    %用库函数得到HSL
     HSV = rgb2hsv(IMG_RGB);
-    IMG_HSI = hsv2rgb(HSV);
+    H = HSV(:,:,1);
+    S = HSV(:,:,2);
+    V = HSV(:,:,3);
+    %用Wiki上的公式转换
+    H = H;
+    I = V-(V.*S)./2;
+    index = find((I==0) || (I==1);
+    if ((I==0) || (I==1))
+        S = 0;
+    else
+        S = (V-I)./min(I,1-I);    
+    end
+    
+    HSI = cat(3,H,S,I);        
 
     
     
