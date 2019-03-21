@@ -10,12 +10,12 @@ if numel(size(input_image)) == 3
     r1 = hist_equal(r);
     v1 = hist_equal(v);
     b1 = hist_equal(b);
-    output = cat(3,r1,v1,b1);    
+    rgb = cat(3,r1,v1,b1);
+    output = uint8(rgb);    
 else
     %this is a gray image
-    [output] = hist_equal(input_image);
-    
+    gray = hist_equal(input_image);
+    [output] = uint8(gray);
 end
-
 
 end

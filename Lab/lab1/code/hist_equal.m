@@ -14,6 +14,7 @@ CDF_Min = Counts(min(CDF_Map));
 %3 计算CDF从而直方图均衡化
 [n,tmp] = size(CDF_Map);
 [L,tmp] = size(Value);
+display("L="+L);
 CDF = 0;
 new_Value = 0;
 for i=1:n
@@ -21,5 +22,5 @@ for i=1:n
     new_Value = ((CDF-CDF_Min)*(L-1))/(Height*Width-CDF_Min);
     input_channel(input_channel==Value(CDF_Map(i))) = new_Value;
 end
-    output2 = uint8(input_channel+0.5);
+    output2 = input_channel;
 end

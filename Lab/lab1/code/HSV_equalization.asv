@@ -7,9 +7,12 @@ if numel(size(rgb)) == 3
     h = hsv(:,:,1);
     s = hsv(:,:,2);
     v = hsv(:,:,3);
-    v2 = hist_equal(v);
+%     v2 = hist_equal(v);
+    v2 = histeq(v);
     hsv = cat(3,h,s,v2);
+    hsv = double()
     rgb = hsv2rgb(hsv);
+    rgb
     output = uint8(rgb);
 else
     %this is a gray image
