@@ -9,12 +9,14 @@ function [HSI] = hsv2hsi(HSV)
     I = V-(V.*S)./2;
     S = (V-I)./min(I,1-I); 
     index = find(I==0);
-    [n,tmp] = size(index);
+    [n,m] = size(index);
+    n = m*n;
     for i=1 : n
         S(index(i))=0;
     end
     index = find(I==1);
-    [n,tmp] = size(index);
+    [n,m] = size(index);
+    n = m*n;
     for i=1 : n
         S(index(i))=0;
     end

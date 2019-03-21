@@ -9,7 +9,8 @@ H = H;
 V = I + S.* min(I,1-I);
 S = 2-2*I./V;
 index = find(V==0);
-[n,tmp] = size(index);
+[m,n] = size(index);
+n = m*n;
 for i=1:n
     S(index(i))=0;
 end
