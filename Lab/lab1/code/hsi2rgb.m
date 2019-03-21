@@ -27,3 +27,4 @@ B(idx)=I(idx).*(1+S(idx).*cos(H(idx)-4*pi/3)./cos(5*pi/3-H(idx)));
 R(idx)=3*I(idx)-(G(idx)+B(idx));
 rgb=cat(3,R,G,B);
 rgb=max(min(rgb,1),0);
+rgb=rgb*255;

@@ -12,7 +12,6 @@ if numel(size(rgb)) == 3
     i2 = double(i2);
     hsi = cat(3,h,s,i2);
     rgb = hsi2rgb(hsi);
-    rgb = rgb * 255;
     output = uint8(rgb); 
 else
     %this is a gray image

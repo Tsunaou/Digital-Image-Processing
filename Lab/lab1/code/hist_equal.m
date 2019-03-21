@@ -19,7 +19,9 @@ CDF = 0;
 new_Value = 0;
 for i=1:n
     CDF = CDF + Counts(CDF_Map(i)); 
-    new_Value = ((CDF-CDF_Min)*(L-1))/(Height*Width-CDF_Min);
+    den = (Height*Width-CDF_Min);
+    den(den==0) = eps;
+    new_Value = ((CDF-CDF_Min)*(L-1))/den;
     input_channel(input_channel==Value(CDF_Map(i))) = new_Value;
 end
     output2 = input_channel;
