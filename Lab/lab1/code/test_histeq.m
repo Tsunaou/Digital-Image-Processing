@@ -3,8 +3,8 @@
 % I = imread('../asset/gray.jpg');
 % I = imread('../asset/gray2.png');
 % I = imread('../asset/gray3.jpg');
+% I = imread('../asset/gray4.jpg'); 
 % ----²ÊÉ«Í¼Ïñ----
-% I = imread('../asset/wiki1.jpg'); 
 % I = imread('../asset/example.png');
 % I = imread('../asset/color.jpg');
 % I = imread('../asset/small_xin.png');

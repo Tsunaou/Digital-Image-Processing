@@ -5,7 +5,6 @@ function [output2] = hist_equal(input_channel)
 
 %0.观察到color.jpg 读入的值是uint8的矩阵，为了保证处理的精度，先将输入通道的精度提高到double
 [input_channel] = im2double(input_channel);
-input_channel = input_channel;
 %1.对图像基础数据计算
 [Height,Width] = size(input_channel); 
 [Counts,Value] = imhist(input_channel);
