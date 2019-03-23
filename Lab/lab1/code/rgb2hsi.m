@@ -22,15 +22,7 @@ if numel(size(IMG_RGB)) == 3
     theta = acos(x./(y+eps)); %»¡¶ÈÖµ
     H = theta;
     [m,n] = size(b)
-    for i=1:m
-        for j=1:n
-            if b(m,n)>g(m,n)
-%                 display("--------");
-                H(m,n) = 2*pi - theta(m,n);
-            end
-        end
-    end
-    H - theta
+    H(b>g) = 2*pi - H(b>g);
     H = H/(2*pi);
     min_rgb = min(r,g);
     min_rgb = min(min_rgb,b);

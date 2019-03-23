@@ -7,8 +7,9 @@ if numel(size(rgb)) == 3
     h = hsi(:,:,1);
     s = hsi(:,:,2);
     i = hsi(:,:,3);
-%     i2 = hist_equal(i);
-    i2 = histeq(i);
+    i = uint8(round(i*255+0.5));
+    i2 = hist_equal(i);
+    i2 = i2/255;
     i2 = double(i2);
     hsi = cat(3,h,s,i2);
     rgb = hsi2rgb(hsi);
