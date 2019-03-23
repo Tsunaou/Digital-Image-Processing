@@ -21,7 +21,7 @@ if numel(size(IMG_RGB)) == 3
     y = ((r-g).^2+(r-b).*(g-b)).^(1/2);
     theta = acos(x./(y+eps)); %»¡¶ÈÖµ
     H = theta;
-    [m,n] = size(b)
+    [m,n] = size(b);
     H(b>g) = 2*pi - H(b>g);
     H = H/(2*pi);
     min_rgb = min(r,g);

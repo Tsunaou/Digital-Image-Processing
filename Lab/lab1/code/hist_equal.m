@@ -9,15 +9,6 @@ input_channel = input_channel;
 %1.对图像基础数据计算
 [Height,Width] = size(input_channel); 
 [Counts,Value] = imhist(input_channel);
-% nn = numel(input_channel);
-% Value = zeros(1,nn);
-% for i=1:nn
-%     tmp = input_channel(i);
-%     if tmp~=0
-%         Value(tmp) = Value(tmp)+1;
-%     end
-% end
-        
 
 %2.找到CDF_Min
 CDF_Map = find(Counts~=0);  %指示非0值的

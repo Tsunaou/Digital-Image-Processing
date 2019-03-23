@@ -7,7 +7,9 @@ if numel(size(rgb)) == 3
     h = hsv(:,:,1);
     s = hsv(:,:,2);
     v = hsv(:,:,3);
+    v = uint8(round(v*255+0.5));
     v2 = hist_equal(v);
+    v = v/255;
     hsv = cat(3,h,s,v2);
     rgb = hsv2rgb(hsv);
     output = uint8(rgb);
