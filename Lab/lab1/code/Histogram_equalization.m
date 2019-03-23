@@ -10,6 +10,7 @@ if numel(size(input_image)) == 3
     r1 = hist_equal(r);
     v1 = hist_equal(v);
     b1 = hist_equal(b);
+
     rgb = cat(3,r1,v1,b1);
     output = uint8(rgb);    
 else
