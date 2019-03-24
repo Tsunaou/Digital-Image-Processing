@@ -18,11 +18,14 @@ I = imread('../asset/xin.png');
 [S] = Hiseq_standard(I);            %使用库函数均衡化（禁忌的histeq，不过用来测试应该还可以）
 
 
-%直方图对比
+%直方图对比(小图+直方图)
 % Histogram_display(I,J,S,I);% 灰度图
 % Histogram_display(I,J,HSV,HSI);% 彩色图
-%图片对比
-% Image_display(I,J,S);% 灰度图
-% Image_display(I,J,HSV,HSI);% 彩色图
+
+%图片对比（小图）
+% Image_display(I,J,S,I);% 灰度图
+Image_display(I,J,HSV,HSI);% 彩色图
+
+%大图对比(修改 Image_display注释即可)
 
 

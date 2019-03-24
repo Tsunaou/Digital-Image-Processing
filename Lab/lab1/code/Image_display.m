@@ -10,7 +10,6 @@ function [] = Image_display(IMG_Origin,IMG_Mine,IMG_A,IMG_B)
 %             figure, imshow(IMG_Origin)
 %             figure, imshow(IMG_Mine)
 %             figure, imshow(IMG_A)
-%             figure, imshow(IMG_B)
         case 3
             subplot(2,2,1);imshow(IMG_Origin);hold on;title('原图','FontSize',12);
             subplot(2,2,2);imshow(IMG_Mine);hold on;title('基于RGB直方图均衡化','FontSize',12);

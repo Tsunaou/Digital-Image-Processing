@@ -18,8 +18,10 @@ CDF_Min = Counts(min(CDF_Map)); %分布函数中最小的非零值
 display("L="+L);
 CDF = 0;
 new_Value = 0;
+y = zeros(1,n);
 for i=1:n
     CDF = CDF + Counts(CDF_Map(i)); %累积分布直方图的值
+    y(i) = CDF;
     den = (Height*Width-CDF_Min);
     den(den==0) = eps;  %防止由于除零而产生的噪点      
     new_Value = ((CDF-CDF_Min)*(L-1))/den;  %原灰度值通过累积分布函数的概率密度均衡化后得到的新值
