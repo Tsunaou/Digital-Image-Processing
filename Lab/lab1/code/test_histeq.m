@@ -8,7 +8,7 @@
 % I = imread('../asset/example.png');
 % I = imread('../asset/color.jpg');
 % I = imread('../asset/small_xin.png');
-I = imread('../asset/xin.png');
+% I = imread('../asset/xin.png');
 % I = imread('../asset/reborn.png');
 % I = imread('../asset/saber.jpg');
 
