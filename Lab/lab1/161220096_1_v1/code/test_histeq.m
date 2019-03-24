@@ -5,12 +5,11 @@
 % I = imread('../asset/image/gray3.jpg');
 % I = imread('../asset/image/gray4.jpg'); 
 % ----彩色图像----
+I = imread('../asset/image/color.jpg');
 % I = imread('../asset/image/example.png');
-% I = imread('../asset/image/color.jpg');
-% I = imread('../asset/image/small_xin.png');
 % I = imread('../asset/image/xin.png');
 % I = imread('../asset/image/reborn.png');
-I = imread('../asset/image/saber.jpg');
+% I = imread('../asset/image/saber.jpg');
 
 [J] = Histogram_equalization(I);    %灰度图直接均衡化，彩色图像分RGB通道均衡化
 [HSV] = HSV_equalization(I);        %灰度图直接均衡化，彩色图像转HSV图像，对V通道均衡化
@@ -20,12 +19,12 @@ I = imread('../asset/image/saber.jpg');
 
 %直方图对比(小图+直方图)
 % Histogram_display(I,J,S,I);% 灰度图
-% Histogram_display(I,J,HSV,HSI);% 彩色图
+Histogram_display(I,J,HSV,HSI);% 彩色图
 
-%图片对比（小图）
-% Image_display(I,J,S,I);% 灰度图
-Image_display(I,J,HSV,HSI);% 彩色图
+%图片对比（小图同框）
+% Image_display(I,J,S,I,0);% 灰度图
+% Image_display(I,J,HSV,HSI,0);% 彩色图
 
-%大图对比(修改 Image_display注释即可)
+%大图对比(修改 上述参数0为1即可)
 
 
