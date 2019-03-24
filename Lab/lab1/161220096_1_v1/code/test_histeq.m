@@ -19,12 +19,19 @@ I = imread('../asset/image/color.jpg');
 
 %直方图对比(小图+直方图)
 % Histogram_display(I,J,S,I);% 灰度图
-Histogram_display(I,J,HSV,HSI);% 彩色图
+% Histogram_display(I,J,HSV,HSI);% 彩色图
 
 %图片对比（小图同框）
 % Image_display(I,J,S,I,0);% 灰度图
-% Image_display(I,J,HSV,HSI,0);% 彩色图
+Image_display(I,J,HSV,HSI,0);% 彩色图
 
 %大图对比(修改 上述参数0为1即可)
+
+%存储图像
+% imwrite(I,'../doc/big/r1.jpg');
+% imwrite(J,'../doc/big/r2.jpg');
+% imwrite(HSV,'../doc/big/r3.jpg');
+% imwrite(HSI,'../doc/big/r4.jpg');
+
 
 
