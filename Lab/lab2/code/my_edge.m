@@ -5,4 +5,5 @@ function output = my_edge(input_image)
 %the entries with 1 in the matrix shows that point is on the edge of the
 %image
 %you can use different methods to complete the edge detection function
-%the better the final result and the more methods you have used, you will get higher scores  
+%the better the final result and the more methods you have used, you will get higher scores
+output = input_image
