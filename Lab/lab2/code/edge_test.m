@@ -7,9 +7,9 @@
 %detection, but you just need do edge linking for rubberband_cap.png.
 clc; clear all;
 % Load the test image
-% imgTest = im2double(imread('../asset/image/rubberband_cap.png'));
+imgTest = im2double(imread('../asset/image/rubberband_cap.png'));
 % imgTest = im2double(imread('../asset/image/5.jpg'));
-imgTest = im2double(imread('../asset/image/a.jpg'));
+% imgTest = im2double(imread('../asset/image/a.jpg'));
 imgTestGray = rgb2gray(imgTest);
 % figure; clf;imshow(imgTestGray);title('Ô­»Ò¶ÈÍ¼')
 
