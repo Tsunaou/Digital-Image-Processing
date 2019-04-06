@@ -6,4 +6,5 @@ function output = my_edge(input_image)
 %image
 %you can use different methods to complete the edge detection function
 %the better the final result and the more methods you have used, you will get higher scores
-output = input_image
+
+output = my_sobel(input_image);
