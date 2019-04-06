@@ -1,15 +1,14 @@
 function [output] = my_sobel(input_image)
 %MY_SOBEL 索贝尔算子下的边缘检测算法
 %   此处显示详细说明
-grayPic=mat2gray(input_image);%实现图像的矩阵归一化操作
-[m,n]=size(grayPic);
-newGrayPic=grayPic;
+[m,n]=size(input_image);
+newGrayPic=zeros(m,n);
 sobelNum=0;
-sobelThreshold=Threshold(grayPic,3);
+sobelThreshold=Threshold(input_image,2.8);
 for i=2:m-1
     for j=2:n-1
-        Gx = grayPic(i-1,j+1)+2*grayPic(i,j+1)+grayPic(i+1,j+1)-grayPic(i-1,j-1)-2*grayPic(i,j-1)-grayPic(i+1,j-1);
-        Gy = grayPic(i-1,j-1)+2*grayPic(i-1,j)+grayPic(i-1,j+1)-grayPic(i+1,j-1)-2*grayPic(i+1,j)-grayPic(i+1,j+1);
+        Gx = input_image(i-1,j+1)+2*input_image(i,j+1)+input_image(i+1,j+1)-input_image(i-1,j-1)-2*input_image(i,j-1)-input_image(i+1,j-1);
+        Gy = input_image(i-1,j-1)+2*input_image(i-1,j)+input_image(i-1,j+1)-input_image(i+1,j-1)-2*input_image(i+1,j)-input_image(i+1,j+1);
         sobelNum= sqrt(Gx^2+Gy^2);
         if(sobelNum > sobelThreshold)
             newGrayPic(i,j)=1;

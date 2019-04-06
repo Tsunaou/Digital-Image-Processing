@@ -1,14 +1,15 @@
 function [output] = my_prewitt(input_image)
 %MY_PREWITT PREWITT算子下的边缘检测算法
 %   此处显示详细说明
-grayPic=mat2gray(input_image);%实现图像的矩阵归一化操作
-[m,n]=size(grayPic);
-newGrayPic=grayPic;
+[m,n]=size(input_image);
+newGrayPic=zeros(m,n);
 PrewittNum=0;
-PrewittThreshold=Threshold(input_image,3);%设定阈值
+PrewittThreshold=Threshold(input_image,1.8);%设定阈值
 for i=2:m-1 %进行边界提取
     for j=2:n-1
-        PrewittNum=abs(grayPic(i-1,j+1)-grayPic(i+1,j+1)+grayPic(i-1,j)-grayPic(i+1,j)+grayPic(i-1,j-1)-grayPic(i+1,j-1))+abs(grayPic(i-1,j+1)+grayPic(i,j+1)+grayPic(i+1,j+1)-grayPic(i-1,j-1)-grayPic(i,j-1)-grayPic(i+1,j-1));
+        Gx = input_image(i-1,j+1)-input_image(i+1,j+1)+input_image(i-1,j)-input_image(i+1,j)+input_image(i-1,j-1)-input_image(i+1,j-1);
+        Gy = input_image(i-1,j+1)+input_image(i,j+1)+input_image(i+1,j+1)-input_image(i-1,j-1)-input_image(i,j-1)-input_image(i+1,j-1);
+        PrewittNum= sqrt(Gx^2+Gy^2);
         if(PrewittNum > PrewittThreshold)
             newGrayPic(i,j)=1;
         else
