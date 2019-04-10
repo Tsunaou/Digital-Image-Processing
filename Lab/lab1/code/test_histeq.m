@@ -11,6 +11,7 @@
 % I = imread('../asset/xin.png');
 % I = imread('../asset/reborn.png');
 % I = imread('../asset/saber.jpg');
+I = imread('../asset/zy.jpg');
 
 [J] = Histogram_equalization(I);    %灰度图直接均衡化，彩色图像分RGB通道均衡化
 [HSV] = HSV_equalization(I);        %灰度图直接均衡化，彩色图像转HSV图像，对V通道均衡化

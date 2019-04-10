@@ -14,25 +14,32 @@ imgTestGray = rgb2gray(imgTest);
 % figure; clf;imshow(imgTestGray);title('原灰度图')
 
 %now call your function my_edge, you can use matlab edge function to see
-%the last result as a reference first
+% %the last result as a reference first
+img_edge = edge(imgTestGray);
 img_edge_original = edge(imgTestGray);
 img_edge_sobel = my_sobel(imgTestGray);
 img_edge_prewitt = my_prewitt(imgTestGray);
 img_edge_roberts = my_roberts(imgTestGray);
 img_edge_laplacian = my_laplacian(imgTestGray);
+img_edge_marr = my_marr(imgTestGray);
+img_edge_canny = my_canny(imgTestGray);
 
-% figure;clf;imshow(img_edge_original);title('库函数效果')
-% figure;clf;imshow(img_edge_sobel);title('Sobel效果')
+figure;clf;imshow(img_edge_original);title('库函数效果')
+figure;clf;imshow(img_edge_sobel);title('Sobel效果')
+figure;clf;imshow(img_edge_marr);title('Marr效果')
+figure;clf;imshow(img_edge_canny);title('Canny效果')
 % figure;clf;imshow(img_edge_prewitt);title('Prewitt效果')
 % figure;clf;imshow(img_edge_roberts);title('Roberts效果')
+
+% 出于一些特殊原因，先不考虑Laplacian
 % figure;clf;imshow(img_edge_laplacian);title('Laplacian效果')
 
-subplot(2,3,1);imshow(imgTestGray);hold on;title('原图','FontSize',12);
-subplot(2,3,2);imshow(img_edge_original);hold on;title('库函数','FontSize',12);
-subplot(2,3,3);imshow(img_edge_sobel);hold on;title('Sobel算子','FontSize',12);
-subplot(2,3,4);imshow(img_edge_prewitt);hold on;title('Prewitt算子','FontSize',12);
-subplot(2,3,5);imshow(img_edge_roberts);hold on;title('Roberts算子','FontSize',12);
-subplot(2,3,6);imshow(img_edge_laplacian);hold on;title('Laplacian算子','FontSize',12);
+% subplot(2,3,1);imshow(imgTestGray);hold on;title('原图','FontSize',12);
+% subplot(2,3,2);imshow(img_edge_original);hold on;title('库函数','FontSize',12);
+% subplot(2,3,3);imshow(img_edge_sobel);hold on;title('Sobel算子','FontSize',12);
+% subplot(2,3,4);imshow(img_edge_prewitt);hold on;title('Prewitt算子','FontSize',12);
+% subplot(2,3,5);imshow(img_edge_roberts);hold on;title('Roberts算子','FontSize',12);
+% subplot(2,3,6);imshow(img_edge_laplacian);hold on;title('Laplacian算子','FontSize',12);
 
 % background = im2bw(imgTest, 1);
 % figure;clf;

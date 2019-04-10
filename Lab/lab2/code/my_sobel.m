@@ -1,6 +1,7 @@
 function [output] = my_sobel(input_image)
 %MY_SOBEL 索贝尔算子下的边缘检测算法
 %   此处显示详细说明
+% input_image = gauss_filter(input_image);
 [m,n]=size(input_image);
 newGrayPic=zeros(m,n);
 sobelNum=0;

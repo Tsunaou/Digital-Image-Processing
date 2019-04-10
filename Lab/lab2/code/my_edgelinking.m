@@ -8,3 +8,4 @@ function output = my_edgelinking(binary_image, row, col)
 %pixels. B holds the row and column coordinates of the boundary pixels.
 %you can use different methods to complete the edge linking function
 %the better the quality of object boundary and the more the object boundaries, you will get higher scores  
+    
