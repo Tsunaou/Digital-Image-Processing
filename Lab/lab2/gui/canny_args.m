@@ -1,5 +1,5 @@
-function [output] = my_canny(input_image)
-%MY_CANNY Canny编译检测器
+function [output] = canny_args(input_image,GaussianDieOff,PercentOfPixelsNotEdges,ThresholdRatio,sigma)
+%MY_CANNY Canny边缘检测器
 %   此处显示详细说明
 
     gray =input_image;
@@ -8,10 +8,10 @@ function [output] = my_canny(input_image)
     % 用于输出的边界位图
     e = false(m,n);
     % Magic numbers
-    GaussianDieOff = .0001; 
-    PercentOfPixelsNotEdges = .7; % 用于阀值选择
-    ThresholdRatio = .6;          % 低阀值相对高阀值的比值
-    sigma = 1; %设置sigma
+%     GaussianDieOff = .0001; 
+%     PercentOfPixelsNotEdges = .7; % 用于阀值选择
+%     ThresholdRatio = .6;          % 低阀值相对高阀值的比值
+%     sigma = 1; %设置sigma
     thresh = [];
    
     % 设计滤波器 - a gaussian和它的导数

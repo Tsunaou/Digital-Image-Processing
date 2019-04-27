@@ -34,11 +34,13 @@ figure;clf;imshow(img_edge_original);title('库函数效果')
 % img_edge_marr = my_marr(imgTestGray);
 % figure;clf;imshow(img_edge_marr);title('Marr效果')
 % 6.Canny方法
-img_edge_canny = my_canny(imgTestGray);
+% img_edge_canny = my_canny(imgTestGray);
+img_edge_canny = canny_args(imgTestGray,0.001,0.8,0.1,1.5);
 figure;clf;imshow(img_edge_canny);title('Canny效果')
 
 % 出于效果原因，先不考虑Laplacian
-% figure;clf;imshow(img_edge_laplacian);title('Laplacian效果')
+img_edge_laplacian = my_laplacian(imgTestGray);
+figure;clf;imshow(img_edge_laplacian);title('Laplacian效果')
 
 % subplot(2,3,1);imshow(imgTestGray);hold on;title('原图','FontSize',12);
 % subplot(2,3,2);imshow(img_edge_original);hold on;title('库函数','FontSize',12);

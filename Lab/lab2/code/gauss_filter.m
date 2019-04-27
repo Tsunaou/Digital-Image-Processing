@@ -22,7 +22,7 @@ function [output] = gauss_filter(input_image)
 % end
 % output=res;
 
-sigma = 0.2;      %sigma赋值
+sigma = 0.9;      %sigma赋值
 N = 7;            %大小是（2N+1）×（2N+1）
 N_row = 2*N+1;
   

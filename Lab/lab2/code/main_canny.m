@@ -2,7 +2,7 @@ clear all;
 clear
 clc;
 %¶Á½øÍ¼Ïñ
-[filename, pathname] = uigetfile({'*.jpg'; '*.bmp'; '*.gif'}, 'Ñ¡ÔñÍ¼Æ¬');
+[filename, pathname] = uigetfile({'*.jpg'; '*.bmp';  '*.png'; '*.gif'}, 'Ñ¡ÔñÍ¼Æ¬');
 
 %Ã»ÓÐÍ¼Ïñ
 if filename == 0
