@@ -11,7 +11,7 @@ function [output] = my_canny(input_image)
     GaussianDieOff = .0001; 
     PercentOfPixelsNotEdges = .7; % 用于阀值选择
     ThresholdRatio = .4;          % 低阀值相对高阀值的比值
-    sigma = 1; %设置sigma
+    sigma = 2.5; %设置sigma
     thresh = [];
    
     % 设计滤波器 - a gaussian和它的导数

@@ -7,12 +7,12 @@
 %detection, but you just need do edge linking for rubberband_cap.png.
 clc; clear all;
 % Load the test image
-% imgTest = im2double(imread('../asset/image/rubberband_cap.png'));
-imgTest = im2double(imread('../asset/image/5.jpg'));
+imgTest = im2double(imread('../asset/image/rubberband_cap.png'));
+% imgTest = im2double(imread('../asset/image/5.jpg'));
 % imgTest = im2double(imread('../asset/image/a.jpg'));
 
 imgTestGray = rgb2gray(imgTest);
-% figure; clf;imshow(imgTestGray);title('原灰度图')
+figure; clf;imshow(imgTestGray);title('原灰度图')
 
 %now call your function my_edge, you can use matlab edge function to see
 % %the last result as a reference first
