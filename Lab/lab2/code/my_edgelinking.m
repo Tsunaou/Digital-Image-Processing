@@ -9,33 +9,41 @@ function output = my_edgelinking(binary_image, row, col)
 %you can use different methods to complete the edge linking function
 %the better the quality of object boundary and the more the object boundaries, you will get higher scores  
     
-    [M,N]=size(binary_image);
+[m,n]=size(binary_image);
 
-    tmp=[];
-    queue_head=1;
-    queue_tail=1;
-    neighbour=[-1 -1;-1 0;-1 1;0 -1;0 1;1 -1;1 0;1 1];  %8-neighbourhood
-%     neighbour=[-1 0;1 0;0 1;0 -1];     %4-neighbourhood
-    q{queue_tail}=[row col];
-    queue_tail=queue_tail+1;
-    [ser1 , ~]=size(neighbour);
-    num = 1;
-    while queue_head~=queue_tail
-        pix=q{queue_head};
-        tmp(num,1)=pix(1,1);
-        tmp(num,2)=pix(1,2);
-        num = num + 1;
-        for i=1:ser1
-            pix1=pix+neighbour(i,:);
-            if pix1(1)>=1 && pix1(2)>=1 &&pix1(1)<=M && pix1(2)<=N
-                if binary_image(pix1(1),pix1(2)) == true
-                    binary_image(pix1(1),pix1(2)) = false;
-                    q{queue_tail}=[pix1(1) pix1(2)];
-                    queue_tail=queue_tail+1;
+tmp=zeros(m,n);     %标记图像
+label=1;
+queue_head=1;       %队列头
+queue_tail=1;       %队列尾
+neighbour=[-1 -1;-1 0;-1 1;0 -1;0 1;1 -1;1 0;1 1];  %和当前像素坐标相加得到八个邻域坐标
 
-                end      
-            end
+for i=2:m-1
+    for j=2:n-1
+        if s(i,j)==1 && tmp(i,j) ==0           
+            tmp(i,j)=label;
+            q{queue_tail}=[i j];        %用元组模拟队列，当前坐标入列
+            queue_tail=queue_tail+1;
+            
+            while queue_head~=queue_tail
+                pix=q{queue_head};                
+                for k=1:8               %8邻域搜索
+                    pix1=pix+neighbour(k,:);
+                    if pix1(1)>=2 && pix1(1)<=m-1 && pix1(2) >=2 &&pix1(2)<=n-1
+                    	if s(pix1(1),pix1(2)) == 1 && tmp(pix1(1),pix1(2)) ==0  %如果当前像素邻域像素为1并且标记图像的这个邻域像素没有被标记，那么标记
+                        	tmp(pix1(1),pix1(2))=label;
+                        	q{queue_tail}=[pix1(1) pix1(2)];
+                        	queue_tail=queue_tail+1;
+                        end  
+                    end              
+                end
+                queue_head=queue_head+1;
+            end      
+            clear q;                %清空队列，为新的标记做准备
+            label=label+1;
+            queue_head=1;
+            queue_tail=1;            
         end
-        queue_head=queue_head+1;
     end
-    output = tmp;
+end
+
+
