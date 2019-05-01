@@ -16,12 +16,12 @@ imgTestGray = rgb2gray(imgTest);
 
 %now call your function my_edge, you can use matlab edge function to see
 % %the last result as a reference first
-img_edge = edge(imgTestGray);
+% img_edge = edge(imgTestGray);
 % % 1.库函数效果
 % img_edge_original = edge(imgTestGray);
 % figure;clf;imshow(img_edge_original);title('库函数效果')
 % % 2.sobel算子
-img_edge_sobel = my_sobel(imgTestGray);
+% img_edge_sobel = my_sobel(imgTestGray);
 % figure;clf;imshow(img_edge_sobel);title('Sobel效果')
 % % 3.prewitt算子
 % img_edge_prewitt = my_prewitt(imgTestGray);
@@ -29,14 +29,12 @@ img_edge_sobel = my_sobel(imgTestGray);
 % % 4.roberts算子
 % img_edge_roberts = my_roberts(imgTestGray);
 % figure;clf;imshow(img_edge_roberts);title('Roberts效果')
-% % 5.marr方法
-% img_edge_laplacian = my_laplacian(imgTestGray);
+% 5.marr方法
 % img_edge_marr = my_marr(imgTestGray);
 % figure;clf;imshow(img_edge_marr);title('Marr效果')
 % % 6.Canny方法
-% img_edge_canny = my_canny(imgTestGray);
-% img_edge_canny = canny_args(imgTestGray,0.001,0.8,0.1,1.5);
-% figure;clf;imshow(img_edge_canny);title('Canny效果')
+img_edge_canny = my_canny(imgTestGray);
+figure;clf;imshow(img_edge_canny);title('Canny效果')
 
 % % 出于效果原因，先不考虑Laplacian（要先滤波）
 % img_edge_laplacian = my_laplacian(imgTestGray);
@@ -57,14 +55,14 @@ img_edge_sobel = my_sobel(imgTestGray);
 
 %using imtool, you select a object boundary to trace, and choose
 %an appropriate edge point as the start point 
-img_link = img_edge_sobel;  %准备对其边缘连接的图
-imtool(img_link);
-background = im2bw(imgTest, 1);
+% img_link = img_edge_sobel;  %准备对其边缘连接的图
+% imtool(img_link);
+% background = im2bw(imgTest, 1);
 %now call your function my_edgelinking, you can use matlab bwtraceboundary 
 %function to see the last result as a reference first. please trace as many 
 %different object boundaries as you can, and choose different start edge points.
-row = 124;
-col = 249;
+% row = 124;
+% col = 249;
 %{  
     库函数的边缘检测  
 %}  
@@ -76,8 +74,8 @@ CONNectivity=8; %8联通方式
 %{  
 	自己实现的边缘检测 
 %}  
-Bxpc = my_edgelinking(img_link, row , col);
-figure; clf; imshow(background);title('边缘追踪','FontSize',12);
-hold on;
-plot(Bxpc(:,2), Bxpc(:,1), 'w', 'LineWidth', 1);
-title('边缘追踪','FontSize',12);
+% Bxpc = my_edgelinking(img_link, row , col);
+% figure; clf; imshow(background);title('边缘追踪','FontSize',12);
+% hold on;
+% plot(Bxpc(:,2), Bxpc(:,1), 'w', 'LineWidth', 1);
+% title('边缘追踪','FontSize',12);

@@ -2,14 +2,14 @@ clear all;
 clear
 clc;
 %读进图像
-[filename, pathname] = uigetfile({'*.jpg'; '*.bmp';  '*.png'; '*.gif'}, '选择图片');
+% [filename, pathname] = uigetfile({'*.jpg'; '*.bmp';  '*.png'; '*.gif'}, '选择图片');
 
 %没有图像
-if filename == 0
-    return;
-end
+% if filename == 0
+%     return;
+% end
 
-imgsrc = imread([pathname, filename]);
+imgsrc = imread('../asset/image/rubberband_cap.png');
 [y, x, dim] = size(imgsrc);
 
 %转换为灰度图
