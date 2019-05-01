@@ -61,8 +61,22 @@ background = im2bw(imgTest, 1);
 %now call your function my_edgelinking, you can use matlab bwtraceboundary 
 %function to see the last result as a reference first. please trace as many 
 %different object boundaries as you can, and choose different start edge points.
-row = 135;
-col = 170;
+
+% rubberband_cap
+% row = 135;
+% col = 170;
+
+% row = 92;
+% col = 47;
+
+% giraffe
+% row = 530;
+% col = 418;
+% 
+% 5
+% row = 187;
+% col = 429;
+
 %{  
     库函数的边缘检测  
 %}  
@@ -70,7 +84,7 @@ col = 170;
 % col=round(dim(2)/2)-90;  %设定一个列坐标
 % row=find(img_link(:,col),1); %在该列中找到第一个不为0的像素坐标
 % CONNectivity=8; %8联通方式
-% Bxpc = bwtraceboundary(img_link, [row,col], 'N',CONNectivity);
+% Bxpc = bwtraceboundary(img_link, [row,col], 'N',8);
 %{  
 	自己实现的边缘检测 
 %}  

@@ -43,7 +43,7 @@ while tra_flag == false
         if curr_d <=0
             curr_d = curr_d + 8;
         end
-        c = b + neighbour(counts,:);
+        c = b + neighbour(curr_d,:);
         x = c(1);
         y = c(2);
         if x>=1 && x<=m && y>=1 && y<=n
@@ -58,7 +58,7 @@ while tra_flag == false
         curr_d = curr_d + 1;
     end
     if 8 == counts
-        curr_d = 1;
+        curr_d = 0;
         tra_flag = true;
         break;
     end
