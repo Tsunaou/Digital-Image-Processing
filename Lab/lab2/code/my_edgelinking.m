@@ -48,7 +48,7 @@ while tra_flag == false
         y = c(2);
         if x>=1 && x<=m && y>=1 && y<=n
             if img(x,y)==1
-                curr_d  = curr_d -2; %更新当前方向
+                curr_d  = curr_d -1; %更新当前方向
                 res.add([x,y]);
                 img(x,y) = 0;
                 b = c;

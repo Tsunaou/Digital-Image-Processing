@@ -2,29 +2,19 @@ function [output] = my_sobel(input_image)
 %MY_SOBEL 索贝尔算子下的边缘检测算法
 %   此处显示详细说明
 % input_image = gauss_filter(input_image);
-[m,n]=size(input_image);
-newGrayPic=zeros(m,n);
-sobelNum=0;
-sobelThreshold=Threshold(input_image,2.8);
+[m,n] = size(input_image);
+res = zeros(m,n);
+thresh = Threshold(input_image,2.8);
+img = input_image;
+
 for i=2:m-1
     for j=2:n-1
-        Gx = input_image(i-1,j+1)+2*input_image(i,j+1)+input_image(i+1,j+1)-input_image(i-1,j-1)-2*input_image(i,j-1)-input_image(i+1,j-1);
-        Gy = input_image(i-1,j-1)+2*input_image(i-1,j)+input_image(i-1,j+1)-input_image(i+1,j-1)-2*input_image(i+1,j)-input_image(i+1,j+1);
+        Gx = img(i-1,j+1)+2*img(i,j+1)+img(i+1,j+1)-img(i-1,j-1)-2*img(i,j-1)-img(i+1,j-1);
+        Gy = img(i-1,j-1)+2*img(i-1,j)+img(i-1,j+1)-img(i+1,j-1)-2*img(i+1,j)-img(i+1,j+1);
         sobelNum= sqrt(Gx^2+Gy^2);
-        if(sobelNum > sobelThreshold)
-            newGrayPic(i,j)=1;
-        else
-            newGrayPic(i,j)=0;
-        end
+        res(i,j) = (sobelNum > thresh);
     end
 end
-output = logical(newGrayPic);
-end
 
-function [threshold] = Threshold(input_image,scale)
-%   Sobel阈值的确定
-%   此处显示详细说明
-means = mean(input_image(:));
-cutoff = scale*means;
-threshold = sqrt(cutoff);
+output = logical(res);
 end
