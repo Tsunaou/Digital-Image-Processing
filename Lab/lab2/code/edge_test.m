@@ -30,7 +30,7 @@ img_edge = edge(imgTestGray);
 % img_edge_sobel = my_sobel(imgTestGray);
 % figure;clf;imshow(img_edge_sobel);title('Sobel效果')
 % % 5.Marr-Hildreth方法
-img_edge_marr = my_marr(imgTestGray);
+img_edge_marr = my_marr(imgTestGray,4);
 figure;clf;imshow(img_edge_marr);title('Marr效果')
 % % 6.Canny方法
 % img_edge_canny = my_canny(imgTestGray);
