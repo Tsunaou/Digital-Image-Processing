@@ -30,11 +30,11 @@ img_edge = edge(imgTestGray);
 % img_edge_sobel = my_sobel(imgTestGray);
 % figure;clf;imshow(img_edge_sobel);title('Sobel效果')
 % % 5.Marr-Hildreth方法
-% img_edge_marr = my_marr(imgTestGray,4);
-% figure;clf;imshow(img_edge_marr);title('Marr效果')
+img_edge_marr = my_marr(imgTestGray,4);
+figure;clf;imshow(img_edge_marr);title('Marr效果')
 % % 6.Canny方法
-img_edge_canny = my_canny(imgTestGray);
-figure;clf;imshow(img_edge_canny);title('Canny效果')
+% img_edge_canny = my_canny(imgTestGray);
+% figure;clf;imshow(img_edge_canny);title('Canny效果')
 
 % % 出于效果原因，先不考虑Laplacian（要先滤波）
 % img_edge_laplacian = my_laplacian(imgTestGray);
