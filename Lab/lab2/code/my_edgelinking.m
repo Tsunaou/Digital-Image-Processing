@@ -28,14 +28,14 @@ img(row,col) = 0;
 neighbour=[
     0 1;
     1 1;
+    1 0;
     1 -1;
     0 -1;
     -1 -1;
-    1 -1;
     -1 0;
     -1 1];  %和当前像素坐标相加得到八个邻域坐标
 
-while tra_flag == true
+while tra_flag == false
     for counts = 1:8
         if curr_d > 8
             curr_d = curr_d - 8;
@@ -43,9 +43,9 @@ while tra_flag == true
         if curr_d <=0
             curr_d = curr_d + 8;
         end
-        c = b + neighbour(k,:);
-        x = c(0);
-        y = c(1);
+        c = b + neighbour(counts,:);
+        x = c(1);
+        y = c(2);
         if x>=1 && x<=m && y>=1 && y<=n
             if img(x,y)==1
                 curr_d  = curr_d -2; %更新当前方向
