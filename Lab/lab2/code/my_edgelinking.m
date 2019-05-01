@@ -57,9 +57,7 @@ while tra_flag == false
         end
         curr_d = curr_d + 1;
     end
-    if 8 == counts
-        curr_d = 0;
-        tra_flag = true;
+    if counts == 8
         break;
     end
 end
