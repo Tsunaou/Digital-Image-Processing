@@ -16,7 +16,7 @@ imgTestGray = rgb2gray(imgTest);
 
 %now call your function my_edge, you can use matlab edge function to see
 % %the last result as a reference first
-% img_edge = edge(imgTestGray);
+img_edge = edge(imgTestGray);
 % % 1.库函数效果
 % img_edge_original = edge(imgTestGray);
 % figure;clf;imshow(img_edge_original);title('库函数效果')
@@ -33,8 +33,8 @@ imgTestGray = rgb2gray(imgTest);
 % img_edge_marr = my_marr(imgTestGray);
 % figure;clf;imshow(img_edge_marr);title('Marr效果')
 % % 6.Canny方法
-img_edge_canny = my_canny(imgTestGray);
-figure;clf;imshow(img_edge_canny);title('Canny效果')
+% img_edge_canny = my_canny(imgTestGray);
+% figure;clf;imshow(img_edge_canny);title('Canny效果')
 
 % % 出于效果原因，先不考虑Laplacian（要先滤波）
 % img_edge_laplacian = my_laplacian(imgTestGray);
@@ -55,27 +55,27 @@ figure;clf;imshow(img_edge_canny);title('Canny效果')
 
 %using imtool, you select a object boundary to trace, and choose
 %an appropriate edge point as the start point 
-% img_link = img_edge_sobel;  %准备对其边缘连接的图
-% imtool(img_link);
-% background = im2bw(imgTest, 1);
+img_link = img_edge;  %准备对其边缘连接的图
+imtool(img_link);
+background = im2bw(imgTest, 1);
 %now call your function my_edgelinking, you can use matlab bwtraceboundary 
 %function to see the last result as a reference first. please trace as many 
 %different object boundaries as you can, and choose different start edge points.
-% row = 124;
-% col = 249;
+row = 135;
+col = 170;
 %{  
     库函数的边缘检测  
 %}  
 % dim=size(img_link);
 % col=round(dim(2)/2)-90;  %设定一个列坐标
 % row=find(img_link(:,col),1); %在该列中找到第一个不为0的像素坐标
-CONNectivity=8; %8联通方式
+% CONNectivity=8; %8联通方式
 % Bxpc = bwtraceboundary(img_link, [row,col], 'N',CONNectivity);
 %{  
 	自己实现的边缘检测 
 %}  
-% Bxpc = my_edgelinking(img_link, row , col);
-% figure; clf; imshow(background);title('边缘追踪','FontSize',12);
-% hold on;
-% plot(Bxpc(:,2), Bxpc(:,1), 'w', 'LineWidth', 1);
-% title('边缘追踪','FontSize',12);
+Bxpc = my_edgelinking(img_link, row , col);
+figure; clf; imshow(background);title('边缘追踪','FontSize',12);
+hold on;
+plot(Bxpc(:,2), Bxpc(:,1), 'w', 'LineWidth', 1);
+title('边缘追踪','FontSize',12);

@@ -10,7 +10,7 @@ function output = my_edgelinking(binary_image, row, col)
 %the better the quality of object boundary and the more the object boundaries, you will get higher scores  
 
 [m,n] = size(binary_image);
-b = [row,col];
+b = [c,col];
 c = [row,col];
 img = binary_image;
 res = javaObject('java.util.LinkedList'); %结果
@@ -47,7 +47,7 @@ while tra_flag == true
         x = c(0);
         y = c(1);
         if x>=1 && x<=m && y>=1 && y<=n
-            if img(x,y)==1
+            if img(x,y)==0
                 curr_d  = curr_d -2; %更新当前方向
                 res.add([x,y]);
                 img(x,y) = 0;
