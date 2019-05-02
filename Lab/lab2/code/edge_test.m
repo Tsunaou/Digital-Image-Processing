@@ -65,7 +65,7 @@ background = im2bw(imgTest, 1);
 
 col = 170;
 row = find(img_link(:,col),1);
-row = 135;
+% row = 135;
 
 % row = 92;
 % col = 47;
