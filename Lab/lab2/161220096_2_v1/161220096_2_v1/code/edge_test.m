@@ -7,13 +7,14 @@
 %detection, but you just need do edge linking for rubberband_cap.png.
 clc; clear all;
 % Load the test image
+% 选择要读取的图片
 imgTest = im2double(imread('../asset/image/rubberband_cap.png'));
 % imgTest = im2double(imread('../asset/image/bird.png'));
 % imgTest = im2double(imread('../asset/image/giraffe.jpg'));
 % imgTest = im2double(imread('../asset/image/noise.jpg'));
 % imgTest = im2double(imread('../asset/image/noise2.jpg'));
 
-imgTestGray = rgb2gray(imgTest);
+imgTestGray = rgb2gray(imgTest); %将输入转为灰度图
 % figure; clf;imshow(imgTestGray);title('原灰度图')
 
 %now call your function my_edge, you can use matlab edge function to see
@@ -92,6 +93,8 @@ subplot(1,2,2);imshow(img_edge_roberts);hold on;title('Roberts效果','FontSize',1
 
 %{  边缘追踪步骤3：自己实现的边缘检测 %}  
 % Bxpc = my_edgelinking(img_link, row , col);
+
+%{  边缘追踪步骤4：结果展示%}  
 % figure; clf; imshow(background);title('边缘追踪','FontSize',12);
 % hold on;
 % plot(Bxpc(:,2), Bxpc(:,1), 'w', 'LineWidth', 1);
