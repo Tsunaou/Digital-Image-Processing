@@ -30,11 +30,11 @@ img_edge = edge(imgTestGray);
 % img_edge_sobel = my_sobel(imgTestGray);
 % figure;clf;imshow(img_edge_sobel);title('Sobel效果')
 % % 5.Marr-Hildreth方法
-% img_edge_marr = my_marr(imgTestGray,4);
-% figure;clf;imshow(img_edge_marr);title('Marr效果')
+img_edge_marr = my_marr(imgTestGray,4);
+figure;clf;imshow(img_edge_marr);title('Marr效果')
 % % 6.Canny方法
-img_edge_canny = my_canny(imgTestGray);
-figure;clf;imshow(img_edge_canny);title('Canny效果')
+% img_edge_canny = my_canny(imgTestGray);
+% figure;clf;imshow(img_edge_canny);title('Canny效果')
 
 % % 出于效果原因，先不考虑Laplacian（要先滤波）
 % img_edge_laplacian = my_laplacian(imgTestGray);
@@ -55,16 +55,17 @@ figure;clf;imshow(img_edge_canny);title('Canny效果')
 
 %using imtool, you select a object boundary to trace, and choose
 %an appropriate edge point as the start point 
-% img_link = img_edge_canny;  %准备对其边缘连接的图
+img_link = img_edge_marr;  %准备对其边缘连接的图
 % imtool(img_link);
-% background = im2bw(imgTest, 1);
+background = im2bw(imgTest, 1);
 %now call your function my_edgelinking, you can use matlab bwtraceboundary 
 %function to see the last result as a reference first. please trace as many 
 %different object boundaries as you can, and choose different start edge points.
 
 
-% row = 135;
-% col = 170;
+col = 170;
+row = find(img_link(:,col),1);
+row = 135;
 
 % row = 92;
 % col = 47;
@@ -88,8 +89,8 @@ figure;clf;imshow(img_edge_canny);title('Canny效果')
 %{  
 	自己实现的边缘检测 
 %}  
-% Bxpc = my_edgelinking(img_link, row , col);
-% figure; clf; imshow(background);title('边缘追踪','FontSize',12);
-% hold on;
-% plot(Bxpc(:,2), Bxpc(:,1), 'w', 'LineWidth', 1);
-% title('边缘追踪','FontSize',12);
+Bxpc = my_edgelinking(img_link, row , col);
+figure; clf; imshow(background);title('边缘追踪','FontSize',12);
+hold on;
+plot(Bxpc(:,2), Bxpc(:,1), 'w', 'LineWidth', 1);
+title('边缘追踪','FontSize',12);
