@@ -12,14 +12,13 @@ img= imfilter(imgsrc, gausFilter, 'replicate');
 [m,n] = size(img);
 img = double(img);
 M = zeros(m, n); 
-sector = zeros(m, n); %表示角度幅值图像
-canny1 = zeros(m, n); %非极大值抑制后图像
-res = zeros(m, n);  %结果图像
+sector = zeros(m, n);
+canny1 = zeros(m, n);%非极大值抑制
+res = zeros(m, n);
 
 % 2.计算梯度幅值图像和角度图像
 for i = 2:(m-1)
     for j = 2:(n-1)
-        %用Sobel算子进行卷积计算梯度幅值和方向
         Gx = img(i-1,j+1)+2*img(i,j+1)+img(i+1,j+1)-img(i-1,j-1)-2*img(i,j-1)-img(i+1,j-1);
         Gy = img(i-1,j-1)+2*img(i-1,j)+img(i-1,j+1)-img(i+1,j-1)-2*img(i+1,j)-img(i+1,j+1);
         M(i,j) = sqrt(Gx^2+Gy^2);

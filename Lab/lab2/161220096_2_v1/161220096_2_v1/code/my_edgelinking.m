@@ -25,23 +25,23 @@ img(row,col) = 0;
 neighbour=[0 1;1 1;1 0;1 -1;0 -1;-1 -1;-1 0;-1 1];  %和当前像素坐标相加得到八个邻域坐标
 
 while true
-    for i = 1:8
+    for i = 1:8 %不断探索八邻域上的点
         curr_d = mod(curr_d-1,8)+1;
-        c = b + neighbour(curr_d,:);
+        c = b + neighbour(curr_d,:); %八邻域上的点
         x = c(1);
         y = c(2);
         if x>=1 && x<=m && y>=1 && y<=n
             if img(x,y)==1
                 curr_d  = curr_d -1; %更新当前方向
                 res = [res;[x,y]]; %将点加入结果
-                img(x,y) = 0;   %
+                img(x,y) = 0;   %避免死循环
                 b = c;
                 break;
             end
         end
         curr_d = curr_d + 1;
     end
-    if i == 8
+    if i == 8 %其八邻域上都没有边界点了，退出返回
         break;
     end
 end

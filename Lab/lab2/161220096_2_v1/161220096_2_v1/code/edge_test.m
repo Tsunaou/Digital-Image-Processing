@@ -8,8 +8,10 @@
 clc; clear all;
 % Load the test image
 imgTest = im2double(imread('../asset/image/rubberband_cap.png'));
-% imgTest = im2double(imread('../asset/image/5.jpg'));
-% imgTest = im2double(imread('../asset/image/a.jpg'));
+% imgTest = im2double(imread('../asset/image/bird.png'));
+% imgTest = im2double(imread('../asset/image/giraffe.jpg'));
+% imgTest = im2double(imread('../asset/image/noise.jpg'));
+% imgTest = im2double(imread('../asset/image/noise2.jpg'));
 
 imgTestGray = rgb2gray(imgTest);
 % figure; clf;imshow(imgTestGray);title('Ô­»Ò¶ÈÍ¼')
