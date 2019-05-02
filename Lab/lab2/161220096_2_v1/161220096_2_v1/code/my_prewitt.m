@@ -3,7 +3,13 @@ function [output] = my_prewitt(input_image)
 %   此处显示详细说明
 [m,n] = size(input_image);
 res = zeros(m,n);
-thresh = Threshold(input_image,1.8);%设定阈值
+% 阈值设置scale:
+scale = 1.8; % rubberband_cap
+% scale = 0.5;% bird 
+% scale = 0.5;% giraffe
+% scale = 0.7;% noise
+% scale = 0.10;% noise2
+thresh = Threshold(input_image,scale);%设定阈值
 img = input_image;
 
 for i=2:m-1 

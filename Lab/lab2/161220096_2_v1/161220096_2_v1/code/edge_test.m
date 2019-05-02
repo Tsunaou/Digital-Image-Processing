@@ -10,9 +10,9 @@ clc; clear all;
 % 选择要读取的图片
 imgTest = im2double(imread('../asset/image/rubberband_cap.png'));
 % imgTest = im2double(imread('../asset/image/bird.png'));
-% imgTest = im2double(imread('../asset/image/giraffe.jpg'));
-% imgTest = im2double(imread('../asset/image/noise.jpg'));
-% imgTest = im2double(imread('../asset/image/noise2.jpg'));
+% imgTest = im2double(imread('../asset/image/giraffe.png'));
+% imgTest = im2double(imread('../asset/image/noise.png'));
+% imgTest = im2double(imread('../asset/image/noise2.png'));
 
 imgTestGray = rgb2gray(imgTest); %将输入转为灰度图
 % figure; clf;imshow(imgTestGray);title('原灰度图')
@@ -26,13 +26,13 @@ img_edge = edge(imgTestGray);
 % img_edge_original = edge(imgTestGray);
 % figure;clf;imshow(img_edge_original);title('库函数效果')
 % 2.roberts算子
-img_edge_roberts = my_roberts(imgTestGray);
+% img_edge_roberts = my_roberts(imgTestGray);
 % figure;clf;imshow(img_edge_roberts);title('Roberts效果')
 % % 3.prewitt算子
 % img_edge_prewitt = my_prewitt(imgTestGray);
 % figure;clf;imshow(img_edge_prewitt);title('Prewitt效果')
 % % 4.sobel算子
-% img_edge_sobel = my_sobel(imgTestGray);
+img_edge_sobel = my_sobel(imgTestGray);
 % figure;clf;imshow(img_edge_sobel);title('Sobel效果')
 % % % 5.Marr-Hildreth方法
 % img_edge_marr = my_marr(imgTestGray,4);
@@ -43,7 +43,7 @@ img_edge_roberts = my_roberts(imgTestGray);
 
 % 对比模版
 subplot(1,2,1);imshow(imgTestGray);hold on;title('原灰度图','FontSize',12);
-subplot(1,2,2);imshow(img_edge_roberts);hold on;title('Roberts效果','FontSize',12);
+subplot(1,2,2);imshow(img_edge_sobel);hold on;title('Sobel效果','FontSize',12);
 
 % 所有方法对比
 % subplot(2,3,1);imshow(img_edge_original);hold on;title('库函数','FontSize',12);
