@@ -10,8 +10,13 @@ LoG = LoG - mean(LoG(:));%矩阵每一项减去均值，则滤波器系数之和为0
 % 利用Log滤波器对图像滤波
 b = filter2(LoG,input_image);
 % 设置零交叉阈值（基于均值或者最大值的百分比）
-% thresh =  0.75*mean(abs(b(:)));
-thresh = 0.05*max(abs(b(:)));
+scale = 0.75; % rubberband_cap 
+% scale = 0.1;% bird 
+% scale = 0.9;% giraffe
+% scale = 0.5;% noise
+% scale = 0.6;% noise2
+thresh =  scale*mean(abs(b(:)));
+% thresh = 0.05*max(abs(b(:)));
 % 寻找滤波后的零交叉点：寻找零交叉的一种方法是以p为中心的一个3*3邻域，如果g(x,y)的值与一个阈值比较，
 % 则不仅相对邻域的符号不同，并且他们数值差的绝对值还超过阈值
 op1 = [0,-1; -1,0; -1,-1; -1, 1]; %分别代表左右、上下和两个对角

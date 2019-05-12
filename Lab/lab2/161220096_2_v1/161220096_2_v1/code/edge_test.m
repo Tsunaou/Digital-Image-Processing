@@ -32,18 +32,18 @@ img_edge = edge(imgTestGray);
 % img_edge_prewitt = my_prewitt(imgTestGray);
 % figure;clf;imshow(img_edge_prewitt);title('Prewitt效果')
 % % 4.sobel算子
-img_edge_sobel = my_sobel(imgTestGray);
+% img_edge_sobel = my_sobel(imgTestGray);
 % figure;clf;imshow(img_edge_sobel);title('Sobel效果')
 % % % 5.Marr-Hildreth方法
-% img_edge_marr = my_marr(imgTestGray,4);
+img_edge_marr = my_marr(imgTestGray,4);
 % figure;clf;imshow(img_edge_marr);title('Marr效果')
 % % 6.Canny方法
 % img_edge_canny = my_canny(imgTestGray);
 % figure;clf;imshow(img_edge_canny);title('Canny效果')
 
 % 对比模版
-subplot(1,2,1);imshow(imgTestGray);hold on;title('原灰度图','FontSize',12);
-subplot(1,2,2);imshow(img_edge_sobel);hold on;title('Sobel效果','FontSize',12);
+% subplot(1,2,1);imshow(imgTestGray);hold on;title('原灰度图','FontSize',12);
+% subplot(1,2,2);imshow(img_edge_canny);hold on;title('Canny效果','FontSize',12);
 
 % 所有方法对比
 % subplot(2,3,1);imshow(img_edge_original);hold on;title('库函数','FontSize',12);
@@ -63,9 +63,9 @@ subplot(1,2,2);imshow(img_edge_sobel);hold on;title('Sobel效果','FontSize',12);
 %an appropriate edge point as the start point 
 
 %{  边缘追踪步骤1：选择要追踪的二值图  %}  
-% img_link = img_edge_marr;  %准备对其边缘连接的图
-% % imtool(img_link);
-% background = im2bw(imgTest, 1);
+img_link = img_edge_marr;  %准备对其边缘连接的图
+imtool(img_link);
+background = im2bw(imgTest, 1);
 
 %now call your function my_edgelinking, you can use matlab bwtraceboundary 
 %function to see the last result as a reference first. please trace as many 
@@ -73,15 +73,13 @@ subplot(1,2,2);imshow(img_edge_sobel);hold on;title('Sobel效果','FontSize',12);
 
 %{  边缘追踪步骤2：选取边缘追踪的起始点  %}  
 % % rubberband_cap
-% col = 170;
+row = 130;col = 170; %矩形
+% row = 82;col = 47; %圆外
+% row = 149;col = 104; %圆内
+
 % row = find(img_link(:,col),1);
 
-% row = 92;
-% col = 47;
 
-% % giraffe
-% row = 530;
-% col = 418;
 
 
 %{  库函数的边缘检测  %}  
@@ -92,10 +90,10 @@ subplot(1,2,2);imshow(img_edge_sobel);hold on;title('Sobel效果','FontSize',12);
 % Bxpc = bwtraceboundary(img_link, [row,col], 'N',8);
 
 %{  边缘追踪步骤3：自己实现的边缘检测 %}  
-% Bxpc = my_edgelinking(img_link, row , col);
+Bxpc = my_edgelinking(img_link, row , col);
 
 %{  边缘追踪步骤4：结果展示%}  
-% figure; clf; imshow(background);title('边缘追踪','FontSize',12);
-% hold on;
-% plot(Bxpc(:,2), Bxpc(:,1), 'w', 'LineWidth', 1);
-% title('边缘追踪','FontSize',12);
+figure; clf; imshow(background);title('边缘追踪','FontSize',12);
+hold on;
+plot(Bxpc(:,2), Bxpc(:,1), 'w', 'LineWidth', 1);
+title('边缘追踪','FontSize',12);
