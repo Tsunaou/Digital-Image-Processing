@@ -2,7 +2,7 @@ function [res,start] = caculate_line(img)
 %CACULATE_LINE 此处显示有关此函数的摘要
 %   此处显示详细说明
 Im = img;
-Im = im2bw(Im); %二值化
+% Im = im2bw(Im); %二值化
 [m,n] = size(Im);
 % 先去边框
 border = 10; %边框所占百分比
@@ -11,7 +11,7 @@ right = floor(m-m/border);
 up = floor(n/border);
 down = floor(n-n/border);
 % 去边框后的图
-Im = Im(left:right,up:down);
+Im =  Im(left:right,up:down);
 [m,n] = size(Im);
 
 

@@ -1,9 +1,70 @@
 clc; clear all;
-Im = imread('../asset/image/example.png');
-imshow(Im)
+% Im = imread('../asset/image/example.png');
+% Im = imread('../asset/image/1.png');
+% Im = imread('../asset/image/2.png');
+% Im = imread('../asset/image/3.png');
+% Im = imread('../asset/image/4.png');
+Im = imread('../asset/image/5.png');
+Im = im2bw(Im);
 hold on
+[m,n] = size(Im);
+% 先去边框，试探空格
+exist = [];
+for i = 1:n
+    tmp = find(Im(:,i)== 0);
+    exist(i) = ~isempty(tmp);
+end
+
+% 分块
+part = [];
+sflag = 0;
+eflag = 0;
+
+for i = 1:length(exist)
+    if(exist(i)==0 && sflag ==0 && eflag == 0)
+        continue;
+    elseif(exist(i)==1 && sflag ==0)
+        sflag = i;
+    elseif(exist(i)==0 && sflag ~=0)
+        part = [part;[sflag,i]];
+        sflag = 0;
+    end
+end
+% 去边框后的图
+left = part(1);
+right = part(2);
+
+% 先去边框，试探空格
+exist = [];
+for i = 1:m
+    tmp = find(Im(i,:)== 0);
+    exist(i) = ~isempty(tmp);
+end
+
+% 分块
+part = [];
+sflag = 0;
+eflag = 0;
+
+for i = 1:length(exist)
+    if(exist(i)==0 && sflag ==0 && eflag == 0)
+        continue;
+    elseif(exist(i)==1 && sflag ==0)
+        sflag = i;
+    elseif(exist(i)==0 && sflag ~=0)
+        part = [part;[sflag,i]];
+        sflag = 0;
+    end
+end
+
+up = part(1);
+down = part(2);
+
+Im =  Im(up:down,left:right);
+imshow(Im)
 L = size(Im);
-[m,n,dim] = size(Im);
+[m,n] = size(Im);
+
 
 max_row = 10;
 max_col = 3;
