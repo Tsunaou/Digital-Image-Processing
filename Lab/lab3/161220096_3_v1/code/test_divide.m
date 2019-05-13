@@ -11,6 +11,8 @@ height = floor(L(1)/max_row);
 width = floor(L(2)/max_col);
 
 seg = cell(max_row,max_col);
+start = cell(max_row,max_col);
+
 %分块
 for row = 1:max_row      
     for col = 1:max_col        
@@ -19,9 +21,14 @@ for row = 1:max_row
 end 
 
 %把第i帧的图片写为'mi.bmp'保存
+res = [];
+start = [];
 for i=1:max_row*max_col
 %     imshow(seg{i});
-    imwrite(seg{i},strcat('./divide_output/m',int2str(i),'.bmp'));   
+%     imwrite(seg{i},strcat('./divide_output/m',int2str(i),'.bmp'));   
+    [a,b] = caculate_line(seg{i});
+    res = [res,a];
+    start = [start,b];
 end
 
 %画出分块的边界
