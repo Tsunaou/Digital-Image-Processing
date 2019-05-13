@@ -3,6 +3,7 @@ Im = imread('../asset/image/example.png');
 imshow(Im)
 hold on
 L = size(Im);
+[m,n,dim] = size(Im);
 
 max_row = 10;
 max_col = 3;
@@ -36,6 +37,12 @@ for row = 1:max_row
     for col = 1:max_col  
         rectangle('Position',[width*(col-1),height*(row-1),width,height],...
          'LineWidth',2,'LineStyle','-','EdgeColor','r');
+        index = (col-1)*max_row + row;
+        scale = max_col*10;
+        x = width*(col-1)+start(index)+n/scale;
+        y = height*(row-1)+m/(scale-1);
+        content = int2str(res(index));
+        text(x,y,content,'FontSize',25); 
     end
 end 
 hold off
