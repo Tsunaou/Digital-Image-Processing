@@ -12,21 +12,42 @@ down = floor(n-n/border);
 Im = Im(left:right,up:down);
 [m,n] = size(Im);
 
-max_row = 1;
-max_col = 5;
 
 height = m;
-width = floor(n/max_col);
+seg = cell(1,5);
 
-seg = cell(max_row,max_col);
-%╥ж©И
-for row = 1:max_row      
-    for col = 1:max_col        
-        seg(row,col)= {Im((row-1)*height+1:row*height,(col-1)*width+1:col*width,:)};   
+% йтл╫©у╦Я
+exist = [];
+for i = 1:n
+    tmp = find(Im(:,i)== 0);
+    exist(i) = ~isempty(tmp);
+end
+
+% ╥ж©И
+
+part = [];
+sflag = 0;
+eflag = 0;
+offset = floor(n/20);
+
+for i = 1:length(exist)
+    if(exist(i)==0 && sflag ==0 && eflag == 0)
+        continue;
+    elseif(exist(i)==1 && sflag ==0)
+        sflag = i;
+    elseif(exist(i)==0 && sflag ~=0)
+        part = [part;[sflag,i]];
+        sflag = 0;
     end
-end 
+end
+last = part(4,2);
+part = [part;[last+offset+1,last+offset]];
 
-for i=1:max_col
+for col = 1:5
+    seg(1,col)= {Im(1:height,part(col,1)-offset:part(col,2)+offset,:)};   
+end
+
+for i=1:5
     subplot(1,5,i);imshow(seg{i});hold on;
     if mod(i,2)==1
         display(my_digit(seg{i}))
