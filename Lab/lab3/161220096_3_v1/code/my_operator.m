@@ -3,4 +3,9 @@ function output = my_operator(input_image)
 %the input parameter is a matrix of an image which contains an operator.
 %the output parameter represents which operator it is. 
 
-output = ocr(input_image,'TextLayout','Word');
+word = ocr(input_image,'TextLayout','Word');
+if isempty(word.Words)
+    output = word.Words;
+else
+    output = word.Words{1};
+end
