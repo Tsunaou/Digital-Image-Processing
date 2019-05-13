@@ -28,6 +28,7 @@ end
 part = [];
 sflag = 0;
 eflag = 0;
+offset = floor(n/20);
 
 for i = 1:length(exist)
     if(exist(i)==0 && sflag ==0 && eflag == 0)
@@ -39,13 +40,14 @@ for i = 1:length(exist)
         sflag = 0;
     end
 end
+last = part(4,2);
+part = [part;[last+offset+1,last+offset]];
 
-for col = 1:4
-    width = part(col,2) - part(col,1);
-    seg(1,col)= {Im(1:height,(part(col,1)+)*width+1:part(col,2)*width,:)};   
+for col = 1:5
+    seg(1,col)= {Im(1:height,part(col,1)-offset:part(col,2)+offset,:)};   
 end
 
-for i=1:max_col
+for i=1:5
     subplot(1,5,i);imshow(seg{i});hold on;
     if mod(i,2)==1
         display(my_digit(seg{i}))
@@ -54,6 +56,8 @@ for i=1:max_col
     end
 end
 
+if my_operator(seg{2})=='+'
+    res = my_digit(seg{1})-'0' + my_digit(seg{3})-'0'
 
 % imshow(Im)
 % hold on

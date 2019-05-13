@@ -56,6 +56,11 @@ for i=1:5
     end
 end
 
+if my_operator(seg{2})=='+'
+    res = my_digit(seg{1})-'0' + my_digit(seg{3})-'0';
+else
+    res = my_digit(seg{1})-'0' - my_digit(seg{3})-'0';
+end
 
 % imshow(Im)
 % hold on
