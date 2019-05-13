@@ -3,4 +3,4 @@ function output = my_digit(input_image)
 %the input parameter is a matrix of an image which contains a digit.
 %the output parameter represents which digit it is.
 
-output = ocr(input_image);
+output = ocr(input_image,'TextLayout','Word');
