@@ -12,7 +12,6 @@ down = floor(n-n/border);
 Im = Im(left:right,up:down);
 [m,n] = size(Im);
 
-
 height = m;
 seg = cell(1,5);
 

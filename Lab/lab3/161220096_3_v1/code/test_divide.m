@@ -7,65 +7,12 @@ clc; clear all;
 Im = imread('../asset/image/5.png');
 Im = im2bw(Im);
 hold on
-[m,n] = size(Im);
-% 先去边框，试探空格
-exist = [];
-for i = 1:n
-    tmp = find(Im(:,i)== 0);
-    exist(i) = ~isempty(tmp);
-end
-
-% 分块
-part = [];
-sflag = 0;
-eflag = 0;
-
-for i = 1:length(exist)
-    if(exist(i)==0 && sflag ==0 && eflag == 0)
-        continue;
-    elseif(exist(i)==1 && sflag ==0)
-        sflag = i;
-    elseif(exist(i)==0 && sflag ~=0)
-        part = [part;[sflag,i]];
-        sflag = 0;
-    end
-end
-% 去边框后的图
-left = part(1);
-right = part(2);
-
-% 先去边框，试探空格
-exist = [];
-for i = 1:m
-    tmp = find(Im(i,:)== 0);
-    exist(i) = ~isempty(tmp);
-end
-
-% 分块
-part = [];
-sflag = 0;
-eflag = 0;
-
-for i = 1:length(exist)
-    if(exist(i)==0 && sflag ==0 && eflag == 0)
-        continue;
-    elseif(exist(i)==1 && sflag ==0)
-        sflag = i;
-    elseif(exist(i)==0 && sflag ~=0)
-        part = [part;[sflag,i]];
-        sflag = 0;
-    end
-end
-
-up = part(1);
-down = part(2);
-
-Im =  Im(up:down,left:right);
+Im =  clear_boundary(Im);
 imshow(Im)
 L = size(Im);
 [m,n] = size(Im);
 
-
+%对图片按照方格进行划分
 max_row = 10;
 max_col = 3;
 
@@ -93,7 +40,7 @@ for i=1:max_row*max_col
     start = [start,b];
 end
 
-%画出分块的边界
+%画出分块的边界，并写出结果
 for row = 1:max_row      
     for col = 1:max_col  
         rectangle('Position',[width*(col-1),height*(row-1),width,height],...
