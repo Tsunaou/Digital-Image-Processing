@@ -1,18 +1,31 @@
 clc; clear all;
-input_image = imread('../asset/image/test5.jpg'); 
-input_image = im2bw(input_image);
+% input_image = imread('../asset/image/numbers/0.png'); 
+% input_image = im2bw(input_image);
+% 
+% [m,n] = size(input_image);
+% I = clear_boundary(input_image);
+% subplot(1,2,1);imshow(input_image);
+% subplot(1,2,2);imshow(I);
+% 
+% p = pblack(I);
+% display(p)
+% 
+% % 分割为最小外接
+% digitOutput = my_operator(input_image);
+% display(digitOutput)
 
-[m,n] = size(input_image);
-I = clear_boundary(input_image);
-subplot(1,2,1);imshow(input_image);
-subplot(1,2,2);imshow(I);
-
-p = pblack(I);
-display(p)
-
-% 分割为最小外接
-digitOutput = my_operator(I);
-display(digitOutput)
+for i=0:9
+    address = strcat('../asset/image/numbers/',int2str(i),'.png');
+    input_image = imread(address); 
+    input_image = im2bw(input_image);
+    I = clear_boundary(input_image);
+    [m,n] = size(I);
+    subplot(10,2,2*i+1);imshow(input_image);
+    subplot(10,2,2*(i+1));imshow(I);
+    I = clear_boundary(input_image);
+    p = pblack(I);
+    display(['i=', num2str(i), ' p=', num2str(p),' m=',num2str(m),' n=',num2str(n)]);
+end
 
 function out = pblack(img)
     [m,n] = size(img);

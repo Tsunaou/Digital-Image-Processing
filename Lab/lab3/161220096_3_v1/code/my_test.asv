@@ -2,7 +2,7 @@
 %Character Recongnition
 
 clc; clear all;
-% imgInput = imread('../asset/image/example.png');
+% imgInput = imread('../asset/image/1.png');
 % imgInput = imread('../asset/image/1.png');
 % imgInput = imread('../asset/image/2.png');
 % imgInput = imread('../asset/image/3.png');

@@ -55,7 +55,7 @@ end
 up = part(1);
 down = part(end);
 
-output =  Im(up:down,left:right);
+output =  Im(up:down-1,left:right-1);
 
 end
 
