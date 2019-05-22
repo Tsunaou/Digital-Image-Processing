@@ -27,7 +27,7 @@ for i = 1:length(exist)
 end
 % 去边框后的图
 left = part(1);
-right = part(2);
+right = part(end);
 
 % 先去边框，试探空格
 exist = [];
@@ -53,7 +53,7 @@ for i = 1:length(exist)
 end
 
 up = part(1);
-down = part(2);
+down = part(end);
 
 output =  Im(up:down,left:right);
 

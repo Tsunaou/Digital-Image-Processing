@@ -5,6 +5,7 @@ clc; clear all;
 % Im = imread('../asset/image/3.png');
 % Im = imread('../asset/image/4.png');
 Im = imread('../asset/image/5.png');
+RGB = Im;
 Im = im2bw(Im);
 hold on
 Im =  clear_boundary(Im);
@@ -34,7 +35,7 @@ res = [];
 start = [];
 for i=1:max_row*max_col
 %     imshow(seg{i});
-%     imwrite(seg{i},strcat('./divide_output/m',int2str(i),'.bmp'));   
+    imwrite(seg{i},strcat('./divide_output/m',int2str(i),'.bmp'));   
     [a,b] = caculate_line(seg{i});
     res = [res,a];
     start = [start,b];
@@ -50,7 +51,10 @@ for row = 1:max_row
         x = width*(col-1)+start(index)+n/scale;
         y = height*(row-1)+m/(scale-1);
         content = int2str(res(index));
-        text(x,y,content,'FontSize',25); 
+        text(x,y,content,'FontSize',24); 
+        off = m/(max_row*5);
+        position = [x,y+off];
+        RGB = insertText(RGB,position,content,'AnchorPoint','LeftCenter','FontSize',60,'BoxOpacity',0);
     end
 end 
 hold off

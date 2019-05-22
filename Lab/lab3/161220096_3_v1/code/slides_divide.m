@@ -46,14 +46,14 @@ for col = 1:5
     seg(1,col)= {Im(1:height,part(col,1)-offset:part(col,2)+offset,:)};   
 end
 
-% for i=1:5
-%     subplot(1,5,i);imshow(seg{i});hold on;
-%     if mod(i,2)==1
-%         display(my_digit(seg{i}))
-%     else
-%         display(my_operator(seg{i}))
-%     end
-% end
+for i=1:5
+    subplot(1,5,i);imshow(seg{i});hold on;
+    if mod(i,2)==1
+        display(my_digit(seg{i}))
+    else
+        display(my_operator(seg{i}))
+    end
+end
 
 if my_operator(seg{2})=='+'
     res = my_digit(seg{1})-'0' + my_digit(seg{3})-'0';
@@ -62,6 +62,6 @@ else
     res = (my_digit(seg{1})-'0') - (my_digit(seg{3})-'0');
     display(strcat(my_digit(seg{1}),'-' ,my_digit(seg{3}),'=',int2str(res)));
 end
-
+% 
 % imshow(Im)
 % hold on
