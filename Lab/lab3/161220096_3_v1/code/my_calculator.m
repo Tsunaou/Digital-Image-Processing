@@ -31,8 +31,6 @@ end
 res = [];
 start = [];
 for i=1:max_row*max_col
-%     imshow(seg{i});
-%     imwrite(seg{i},strcat('./divide_output/m',int2str(i),'.bmp'));   
     [a,b] = caculate_line(seg{i});
     res = [res,a];
     start = [start,b];

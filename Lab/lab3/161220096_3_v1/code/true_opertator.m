@@ -4,3 +4,4 @@ function [output] = true_opertator(input_image)
 
 end
 
+

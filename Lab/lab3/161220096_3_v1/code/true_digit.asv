@@ -1,0 +1,23 @@
+function [output] = true_digit(input_image)
+%TRUE_DIGIT 用匹配的方法来匹配数字
+%   此处显示详细说明
+    I = clear_boundary(input_image);
+    I=imresize(I,[40,25]);
+    res = 0;
+    sim = match(I,0);
+    for i=1:9
+        tmp = match(I,i);
+        if tmp > sim
+            res = i;
+            sim = tmp;
+        end
+    end
+    output = res;
+end
+
+function [output] = match(A,i)
+    normal = imread(strcat('../asset/image/normal/',int2str(i),'.png')); 
+    B=imresize(I,[40,25]);
+    fo
+end
+

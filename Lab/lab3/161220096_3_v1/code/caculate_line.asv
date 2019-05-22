@@ -69,10 +69,11 @@ end
 
 if my_operator(seg{2})=='+'
     res = true_digit(seg{1}) + true_digit(seg{3});
-    display([num2str(true_digit(seg{1})),'+',num2str(true_digit(seg{3})),'=',int2str(res)]);
+    display([num2str(true_digit(seg{1}),'+']);
+    display(strcat(true_digit(seg{1}),'+' ,true_digit(seg{3}),'=',int2str(res)));
 else
     res = (true_digit(seg{1})) - (true_digit(seg{3}));
-    display([num2str(true_digit(seg{1})),'-',num2str(true_digit(seg{3})),'=',int2str(res)]);
+    display(strcat(true_digit(seg{1}),'-' ,true_digit(seg{3}),'=',int2str(res)));
 end
 
 end
