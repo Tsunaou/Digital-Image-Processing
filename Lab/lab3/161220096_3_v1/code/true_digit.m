@@ -12,7 +12,7 @@ function [output] = true_digit(input_image)
             sim = tmp;
         end
     end
-    output = res;
+    output = res + '0';
 end
 
 function [output] = match(A,k)
