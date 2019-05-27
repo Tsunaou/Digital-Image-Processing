@@ -8,6 +8,7 @@ function output = my_digit(input_image)
 end
 
 function [output] = func_digit(input_image)
+    % สนำร
     word = ocr(input_image,'TextLayout','Word','CharacterSet','1234567890');
     if isempty(word.Words)
         output = word.Words;
@@ -40,7 +41,7 @@ function [output] = match(A,k)
         A = im2bw(A);
     end
     if ~islogical(B)
-        A = im2bw(B);
+        B = im2bw(B);
     end
     cnts = 0;
     for i = 1:40

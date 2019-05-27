@@ -19,10 +19,11 @@ for i=1:m
     end
 end
 out = cnts/(m*n);
+ra = m/n; %±ÈÀı
 
-if out>0.8
+if out>0.8 || ra < 0.3
     output = '-';
-elseif out < 0.4
+elseif out < 0.4 && ra > 0.7
     output = '+';
 else
     output = '=';

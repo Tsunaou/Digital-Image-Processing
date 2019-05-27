@@ -1,11 +1,18 @@
 clc; clear all;
-% testOperators()
-testNumbers()
+testOperators()
+% testNumbers()
 
 function testOperators()
-    input_image = imread('../asset/image/test2.jpg'); 
-%     input_image = imread('../asset/image/test3.jpg'); 
-%     input_image = imread('../asset/image/test5.jpg'); 
+    %Ó¡Ë¢Ìå
+    input_image = imread('../asset/image/operators/plus.jpg'); 
+%     input_image = imread('../asset/image/operators/equal.jpg'); 
+%     input_image = imread('../asset/image/operators/minus.jpg'); 
+    
+    %ÊÖĞ´Ìå
+%     input_image = imread('../asset/image/operators/plus_w.jpg'); 
+%     input_image = imread('../asset/image/operators/equal_w.jpg'); 
+%     input_image = imread('../asset/image/operators/minus_w.jpg'); 
+    
     input_image = im2bw(input_image);
 
     I = clear_boundary(input_image);
@@ -21,7 +28,7 @@ function testOperators()
 end
 
 function testNumbers()
-    input_image = imread('../asset/image/numbers/4a.png'); 
+    input_image = imread('../asset/image/numbers/4.png'); 
     input_image = im2bw(input_image);
 
     I = clear_boundary(input_image);
