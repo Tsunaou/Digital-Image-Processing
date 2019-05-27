@@ -54,3 +54,19 @@ function [output] = match(A,k)
     output = cnts;
 end
 
+function genNormal()
+    for i=0:9
+        address = strcat('../asset/image/numbers/',int2str(i),'.png');
+        input_image = imread(address); 
+        input_image = im2bw(input_image);
+        I = clear_boundary(input_image);
+        [m,n] = size(I);
+        subplot(10,2,2*i+1);imshow(input_image);
+        subplot(10,2,2*(i+1));imshow(I);
+        I = clear_boundary(input_image);
+        imwrite(I,strcat('../asset/image/normal/',int2str(i),'.png'));   
+        p = pblack(I);
+%         display(['i=', num2str(i), ' p=', num2str(p),' m=',num2str(m),' n=',num2str(n)]);
+    end
+end
+

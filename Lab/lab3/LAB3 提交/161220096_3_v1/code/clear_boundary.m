@@ -1,5 +1,5 @@
 function [output] = clear_boundary(Im)
-%CLEAR_BOUNDARY 对图像进行预处理，求出其外接矩形
+%CLEAR_BOUNDARY 对图像进行预处理，去除其边缘，求出其最小外接矩形，定位关键图像
 %   此处显示详细说明
 
 [m,n] = size(Im);

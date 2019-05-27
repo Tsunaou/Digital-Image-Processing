@@ -1,5 +1,5 @@
 clc; clear all;
-input_image = imread('../asset/image/numbers/6.png'); 
+input_image = imread('../asset/image/numbers/4.png'); 
 input_image = im2bw(input_image);
 
 [m,n] = size(input_image);

@@ -1,21 +1,38 @@
 clc; clear all;
-input_image = imread('../asset/image/numbers/6.png'); 
-input_image = im2bw(input_image);
+testOperators()
 
-[m,n] = size(input_image);
-I = clear_boundary(input_image);
-subplot(1,2,1);imshow(input_image);
-subplot(1,2,2);imshow(I);
+function testOperators()
+    input_image = imread('../asset/image/test2.jpg'); 
+%     input_image = imread('../asset/image/test3.jpg'); 
+%     input_image = imread('../asset/image/test5.jpg'); 
+    input_image = im2bw(input_image);
 
-p = pblack(I);
-display(p)
+    I = clear_boundary(input_image);
+    subplot(1,2,1);imshow(input_image);
+    subplot(1,2,2);imshow(I);
 
-% 分割为最小外接
-% digitOutput = my_operator(input_image);
-digitOutput = true_digit(input_image);
-display(digitOutput)
+    p = pblack(I);
+    display(p)
 
+    % 分割为最小外接
+    digitOutput = my_operator(input_image);
+    display(digitOutput)
+end
 
+function testNumbers()
+    input_image = imread('../asset/image/numbers/4.png'); 
+    input_image = im2bw(input_image);
+
+    I = clear_boundary(input_image);
+    subplot(1,2,1);imshow(input_image);
+    subplot(1,2,2);imshow(I);
+
+    display(p)
+
+    % 分割为最小外接
+    digitOutput = my_digit(input_image);
+    display(digitOutput)
+end
 
 function out = pblack(img)
     [m,n] = size(img);
