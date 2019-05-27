@@ -1,5 +1,6 @@
 clc; clear all;
-testOperators()
+% testOperators()
+testNumbers()
 
 function testOperators()
     input_image = imread('../asset/image/test2.jpg'); 
@@ -20,18 +21,15 @@ function testOperators()
 end
 
 function testNumbers()
-    input_image = imread('../asset/image/numbers/4.png'); 
+    input_image = imread('../asset/image/numbers/4a.png'); 
     input_image = im2bw(input_image);
 
     I = clear_boundary(input_image);
     subplot(1,2,1);imshow(input_image);
     subplot(1,2,2);imshow(I);
-
-    display(p)
-
     % 分割为最小外接
     digitOutput = my_digit(input_image);
-    display(digitOutput)
+    display(digitOutput-'0')
 end
 
 function out = pblack(img)

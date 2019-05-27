@@ -14,3 +14,5 @@ subplot(1, 2, 1);
 imshow(imgInput);
 subplot(1, 2, 2);
 imshow(imgOutput);
+
+% imwrite(imgOutput,strcat('../asset/image/5_result.png'));   

@@ -3,8 +3,8 @@ function output = my_digit(input_image)
 %the input parameter is a matrix of an image which contains a digit.
 %the output parameter represents which digit it is.
 
-    output = true_digit(input_image);
-%     output = func_digit(input_image);
+%     output = true_digit(input_image);
+    output = func_digit(input_image);
 end
 
 function [output] = func_digit(input_image)
