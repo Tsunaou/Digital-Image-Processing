@@ -1,6 +1,6 @@
 clc; clear all;
-testOperators()
-% testNumbers()
+% testOperators()
+testNumbers()
 
 function testOperators()
     %印刷体
@@ -28,15 +28,33 @@ function testOperators()
 end
 
 function testNumbers()
-    input_image = imread('../asset/image/numbers/4.png'); 
-    input_image = im2bw(input_image);
 
-    I = clear_boundary(input_image);
-    subplot(1,2,1);imshow(input_image);
-    subplot(1,2,2);imshow(I);
-    % 分割为最小外接
-    digitOutput = my_digit(input_image);
-    display(digitOutput-'0')
+    %对单幅图片测试
+%     input_image = imread('../asset/image/numbers/4.png'); 
+%     input_image = im2bw(input_image);
+% 
+%     I = clear_boundary(input_image);
+%     subplot(1,2,1);imshow(input_image);
+%     subplot(1,2,2);imshow(I);
+%     % 分割为最小外接
+%     digitOutput = my_digit(input_image);
+%     display(digitOutput-'0')
+    %对测试集测试
+    testAllNumbersMatch();
+end
+
+function testAllNumbersMatch()
+    for i=0:9
+%         address = strcat('../asset/image/numbers/',int2str(i),'.png');
+        address = strcat('../asset/image/write/',int2str(i),'.png');
+        input_image = imread(address); 
+        input_image = im2bw(input_image);
+        I = clear_boundary(input_image);
+        subplot(2,10,i+1);imshow(input_image);
+        subplot(2,10,(i+11));imshow(I);
+        digitOutput = my_digit(input_image);
+        display(digitOutput-'0')
+    end
 end
 
 function out = pblack(img)
